@@ -10,5 +10,10 @@
             Right = number;
             number.Left = this;
         }
+
+        public virtual void ResolveСhain()
+        {
+            
+        }
     }
 }
