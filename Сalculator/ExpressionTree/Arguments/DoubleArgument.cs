@@ -1,4 +1,4 @@
-﻿namespace Сalculator.ExpressionTree.Arguments
+﻿namespace StringСalculator.ExpressionTree.Arguments
 {
     public class DoubleArgument : Argument
     {

@@ -2,12 +2,12 @@
 
 namespace StringСalculator.ExpressionTree.Operators
 {
-    public class Plus : Operator
+    public class Minus : Operator
     {
         public override Argument GetResult()
         {
-            // todo перегрузка операторов поможет?
-            return new DoubleArgument(Left.Value + Right.Value);
+            // todo (Left?.Value ?? 0)
+            return new DoubleArgument(Left.Value - Right.Value);
         }
 
         public override int Priority => 0;

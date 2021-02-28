@@ -43,19 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calculator.cs" />
+    <Compile Include="ExpressionTree\ExpressionReader.cs" />
+    <Compile Include="ExpressionTree\Operators\Division.cs" />
+    <Compile Include="ExpressionTree\Operators\Minus.cs" />
+    <Compile Include="ExpressionTree\Operators\Multiplication.cs" />
+    <Compile Include="StringCalculator.cs" />
     <Compile Include="ExpressionTree\Argument.cs" />
     <Compile Include="ExpressionTree\Arguments\DoubleArgument.cs" />
+    <Compile Include="ExpressionTree\ExpressionItem.cs" />
     <Compile Include="ExpressionTree\LeftBracket.cs" />
     <Compile Include="ExpressionTree\Operator.cs" />
     <Compile Include="ExpressionTree\Operators\Plus.cs" />
     <Compile Include="ExpressionTree\RightBracket.cs" />
-    <Compile Include="ExpressionСhain\LeftBracket.cs" />
-    <Compile Include="ExpressionСhain\RightBracket.cs" />
-    <Compile Include="ExpressionСhain\СhainLink.cs" />
-    <Compile Include="ExpressionСhain\Argument.cs" />
-    <Compile Include="ExpressionСhain\Operator.cs" />
-    <Compile Include="ExpressionСhain\Operators\Plus.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

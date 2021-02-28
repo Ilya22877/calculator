@@ -1,15 +1,37 @@
 ﻿using System;
 
-namespace Сalculator.ExpressionTree
+namespace StringСalculator.ExpressionTree
 {
     public abstract class Operator : Argument
     {
-        public Argument Left { get; set; }
+        private Argument _left;
 
-        public Argument Right { get; set; }
+        public Argument Left { 
+            get => _left;
+            set
+            {
+                value.Parent = this;
+                _left = value;
+            }
+        }
+
+        private Argument _right;
+
+        public Argument Right
+        {
+            get => _right;
+            set
+            {
+                value.Parent = this;
+                _right = value;
+            }
+        }
+
 
         public abstract Argument GetResult();
 
         public override double Value => GetResult().Value;
+
+        public abstract int Priority { get; }
     }
 }

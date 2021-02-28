@@ -1,6 +1,6 @@
-﻿namespace Сalculator.ExpressionTree
+﻿namespace StringСalculator.ExpressionTree
 {
-    public class LeftBracket
+    public class LeftBracket : ExpressionItem
     {
         // todo парсил здесь?
     }

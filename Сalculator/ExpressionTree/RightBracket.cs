@@ -1,7 +1,7 @@
-﻿namespace Сalculator.ExpressionTree
+﻿namespace StringСalculator.ExpressionTree
 {
     // todo может не надо?
-    public class RightBracket
+    public class RightBracket : ExpressionItem
     {
         
     }

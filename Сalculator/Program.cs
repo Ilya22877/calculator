@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Сalculator;
 
-namespace Сalculator
+namespace StringСalculator
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var calculator = new Calculator();
+            var calculator = new StringCalculator();
             while (true)
             {
                 Console.WriteLine("Enter expression:");
