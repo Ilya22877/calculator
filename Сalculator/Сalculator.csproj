@@ -44,6 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calculator.cs" />
+    <Compile Include="ExpressionTree\Argument.cs" />
+    <Compile Include="ExpressionTree\Arguments\DoubleArgument.cs" />
+    <Compile Include="ExpressionTree\LeftBracket.cs" />
+    <Compile Include="ExpressionTree\Operator.cs" />
+    <Compile Include="ExpressionTree\Operators\Plus.cs" />
+    <Compile Include="ExpressionTree\RightBracket.cs" />
     <Compile Include="ExpressionСhain\LeftBracket.cs" />
     <Compile Include="ExpressionСhain\RightBracket.cs" />
     <Compile Include="ExpressionСhain\СhainLink.cs" />

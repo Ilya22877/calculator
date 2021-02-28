@@ -15,19 +15,26 @@ namespace Сalculator
         {
             // todo может тоже в какой-то класс?
             var pointer = 0;
-            var chain = ReadNext(expression, ref pointer);
+            var expressionChain = new Stack<СhainLink>();
             // todo заменить цикл
-            while (expression.Length != pointer)
+            while (true)
             {
                 var chainLink = ReadNext(expression, ref pointer);
-                chain.AddNext(chainLink);
                 // todo если скобок не хватает или больше?
-                if (chainLink is RightBracket rightBracket)
+                if (chainLink is RightBracket)
                 {
-                    rightBracket.ResolveBrackets();
+                    var operatorsInBrackets = new List<Operator>();
+                    do
+                    {
+                        var 
+                    } while (b);
+
+                }
+                else
+                {
+                    expressionChain.Push(chainLink);
                 }
             }
-
         }
 
         private СhainLink ReadNext(string expression, ref int pointer)
