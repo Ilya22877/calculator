@@ -15,6 +15,6 @@ namespace StringСalculator.ExpressionTree.Operators
             return new DoubleArgument(Left.Value / denominator);
         }
 
-        public override int Priority => 1;
+        public override int Priority => 2;
     }
 }

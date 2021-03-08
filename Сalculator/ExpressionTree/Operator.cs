@@ -10,8 +10,15 @@ namespace StringСalculator.ExpressionTree
             get => _left;
             set
             {
-                value.Parent = this;
-                _left = value;
+                if (value.Parent != null && (value is Operator || this.Priority < value.Parent.Priority))
+                {
+                    this.Left = value.Parent;
+                }
+                else
+                {
+                    value.Parent = this;
+                    _left = value;
+                }
             }
         }
 
@@ -31,7 +38,5 @@ namespace StringСalculator.ExpressionTree
         public abstract Argument GetResult();
 
         public override double Value => GetResult().Value;
-
-        public abstract int Priority { get; }
     }
 }

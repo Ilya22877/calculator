@@ -10,6 +10,6 @@ namespace StringСalculator.ExpressionTree.Operators
         }
 
         // todo enum
-        public override int Priority => 1;
+        public override int Priority => 2;
     }
 }

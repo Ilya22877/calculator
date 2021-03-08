@@ -43,11 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExpressionTree\ExpressionReader.cs" />
+    <Compile Include="ExpressionTree\StringExpressionReader.cs" />
+    <Compile Include="ExpressionTree\IExpressionReader.cs" />
     <Compile Include="ExpressionTree\Operators\Division.cs" />
     <Compile Include="ExpressionTree\Operators\Minus.cs" />
     <Compile Include="ExpressionTree\Operators\Multiplication.cs" />
-    <Compile Include="StringCalculator.cs" />
+    <Compile Include="MyCalculator.cs" />
     <Compile Include="ExpressionTree\Argument.cs" />
     <Compile Include="ExpressionTree\Arguments\DoubleArgument.cs" />
     <Compile Include="ExpressionTree\ExpressionItem.cs" />

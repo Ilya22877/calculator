@@ -3,19 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using StringСalculator.ExpressionTree;
 using StringСalculator.ExpressionTree.Arguments;
-using StringСalculator.ExpressionTree.Operators;
 using Сalculator.ExpressionTree;
 
 namespace Сalculator
 {
-    public class StringCalculator
+    public static class MyCalculator
     {
-        public StringCalculator()
-        {
-            // todo так бы конфигурировать калькулятор через конструктор
-        }
-
-        public double Resolve(ExpressionReader reader)
+        public static double Resolve(IExpressionReader reader)
         {
             // todo prepare expression + validate
             // todo перенести выше
@@ -38,7 +32,6 @@ namespace Сalculator
                         var rootInBrackets = GetRoot(stack);
                         return rootInBrackets.Value;
                     case LeftBracket leftBracket:
-                        // todo бесконечный цикл?
                         var valueInBrackets = Resolve(reader);
                         expressionItem = new DoubleArgument(valueInBrackets);
                         AddArgument(stack, (Argument)expressionItem);
@@ -54,7 +47,7 @@ namespace Сalculator
             return root.Value;
         }
 
-        private Argument GetRoot(Stack<ExpressionItem> stack)
+        private static Argument GetRoot(Stack<ExpressionItem> stack)
         {
             return stack
                 .OfType<Argument>()
@@ -72,40 +65,56 @@ namespace Сalculator
 
         private static void AddOperator(Stack<ExpressionItem> stack, Operator newOperator)
         {
-            var previousArgument = (Argument) stack.Pop();
-            // todo исключение?
-            // todo а если скобка?
-            Operator previousOperator = null;
-            // todo tryPeek?
-            if (stack.Any())
-            {
-                previousOperator = (Operator)stack.Peek();
-            }
-            if (previousOperator == null)
-            {
-                newOperator.Left = previousArgument;
-            }
-            else if (newOperator.Priority >= previousOperator.Priority)
-            {
-                previousOperator.Right = newOperator;
-                newOperator.Left = previousArgument;
-            }
-            else
-            {
-                do
-                {
-                    previousOperator = stack.Pop() as Operator;
-                    // todo возможен вечный цикл
-                    // todo что со скобками?
-                } while (
-                    previousOperator == null ||
-                    // todo там может быть аргумент?
-                    stack.Any() ||
-                    // todo может ли прилепиться в середину дерева?
-                    newOperator.Priority > previousOperator.Priority);
+            //Argument previousArgument = null;
+            //do
+            //{
+            //    previousArgument = (Argument)stack.Pop();
+            //    if (!stack.Any())
+            //    {
+            //        var cwecew = 1;
+            //    }
+            //    // todo возможен вечный цикл
+            //    // todo это нужно перенести в свойства дерева
+            //} while (
+            //    // todo там может быть аргумент?
+            //    stack.Any() ||
+            //    // todo может ли прилепиться в середину дерева?
+            //    newOperator.Priority < previousArgument.Priority);
 
-                newOperator.Left = previousOperator;
-            }
+            var previousArgument = (Argument)stack.Pop();
+            newOperator.Left = previousArgument;
+
+            //var previousArgument = (Argument)stack.Pop();
+            //// todo исключение?
+            //// todo а если скобка?
+            //Operator previousOperator = null;
+            //// todo tryPeek?
+            //if (stack.Any())
+            //{
+            //    previousOperator = (Operator)stack.Peek();
+            //}
+            //if (previousOperator == null)
+            //{
+            //    newOperator.Left = previousArgument;
+            //}
+            //else if (newOperator.Priority >= previousOperator.Priority)
+            //{
+            //    newOperator.Left = previousArgument;
+            //}
+            //else
+            //{
+            //    do
+            //    {
+            //        previousOperator = stack.Pop() as Operator;
+            //        // todo возможен вечный цикл
+            //        // todo это нужно перенести в свойства дерева
+            //    } while (
+            //        // todo там может быть аргумент?
+            //        stack.Any() );
+
+
+            //    newOperator.Left = previousOperator;
+            //}
         }
     }
 }

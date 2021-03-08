@@ -10,6 +10,6 @@ namespace StringСalculator.ExpressionTree.Operators
             return new DoubleArgument(Left.Value + Right.Value);
         }
 
-        public override int Priority => 0;
+        public override int Priority => 1;
     }
 }

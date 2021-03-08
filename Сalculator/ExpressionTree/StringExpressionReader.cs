@@ -5,7 +5,7 @@ using StringСalculator.ExpressionTree.Operators;
 
 namespace Сalculator.ExpressionTree
 {
-    public class ExpressionReader
+    public class StringExpressionReader : IExpressionReader
     {
         public string Expression { get; }
 
@@ -13,7 +13,7 @@ namespace Сalculator.ExpressionTree
 
         public bool CanRead => Expression.Length > Pointer;
 
-        public ExpressionReader(string expression)
+        public StringExpressionReader(string expression)
         {
             // todo можно и скобочки провалидировать
             Expression = expression.Replace(" ", "");
