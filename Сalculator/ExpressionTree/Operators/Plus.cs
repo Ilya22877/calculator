@@ -1,12 +1,18 @@
-﻿using StringСalculator.ExpressionTree.Arguments;
+﻿using Сalculator.Exceptions;
+using Сalculator.ExpressionTree.Arguments;
 
-namespace StringСalculator.ExpressionTree.Operators
+namespace Сalculator.ExpressionTree.Operators
 {
     public class Plus : Operator
     {
         public override Argument GetResult()
         {
-            // todo перегрузка операторов поможет?
+            if (Left == null || Right == null)
+            {
+                throw new CalculatorException(
+                    $"Argument is missing. Operator: {nameof(Plus)}");
+            }
+
             return new DoubleArgument(Left.Value + Right.Value);
         }
 

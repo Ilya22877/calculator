@@ -1,15 +1,21 @@
-﻿using StringСalculator.ExpressionTree.Arguments;
+﻿using Сalculator.Exceptions;
+using Сalculator.ExpressionTree.Arguments;
 
-namespace StringСalculator.ExpressionTree.Operators
+namespace Сalculator.ExpressionTree.Operators
 {
     public class Multiplication : Operator
     {
         public override Argument GetResult()
         {
+            if (Left == null || Right == null)
+            {
+                throw new CalculatorException(
+                    $"Argument is missing. Operator: {nameof(Multiplication)}");
+            }
+
             return new DoubleArgument(Left.Value * Right.Value);
         }
 
-        // todo enum
-        public override int Priority => 2;
+        public override int Priority => 4;
     }
 }

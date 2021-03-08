@@ -2,6 +2,5 @@
 {
     public class LeftBracket : ExpressionItem
     {
-        // todo парсил здесь?
     }
 }

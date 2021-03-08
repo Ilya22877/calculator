@@ -1,8 +1,7 @@
-﻿namespace StringСalculator.ExpressionTree
+﻿using StringСalculator.ExpressionTree;
+
+namespace Сalculator.ExpressionTree
 {
-    // todo нужны вообще разные аргументы?
-    // todo кроме double нужны другие?
-    // todo большой int посчитает??
     public abstract class Argument : ExpressionItem
     {
         private Operator _parent;
@@ -28,7 +27,5 @@
         }
 
         public abstract double Value { get; }
-
-        public virtual int Priority => 3;
     }
 }

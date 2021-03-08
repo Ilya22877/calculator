@@ -8,11 +8,6 @@ namespace Calculator.Tests
     [TestFixture]
     class CalculatorTests
     {
-        //[TestCase("-2-1", ExpectedResult = -3)]
-        //[TestCase("2*-1", ExpectedResult = -3)]
-        //[TestCase("6/0", ExpectedResult = 1)]
-        // todo как на счет отрицательных чисел в начале?
-        // todo умножение на ноль
         [TestCase("1", 1)]
         [TestCase("1+1", 2)]
         [TestCase(" 1 +  1 ", 2)]
@@ -38,6 +33,12 @@ namespace Calculator.Tests
         [TestCase("2*(1+3)", 8)]
         [TestCase("2*(1-6/(2+1))*(1-3)", 4)]
         [TestCase("(2,0*(1-6/(2+1))*(1,3-3,3))*1,1", 4.4)]
+        [TestCase("-1", -1)]
+        [TestCase("-1*5+1", -4)]
+        [TestCase("-2-1", -3)]
+        [TestCase("-2+(-1*3)", -5)]
+        [TestCase("-2+(1/(-1))", -3)]
+
         public void Test(string expression, double expectedResult)
         {
             var result = MyCalculator.Resolve(new StringExpressionReader(expression));

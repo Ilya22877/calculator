@@ -1,8 +1,7 @@
 ﻿using System;
-using Сalculator;
-using Сalculator.ExpressionTree;
+using Сalculator.Exceptions;
 
-namespace StringСalculator
+namespace Сalculator
 {
     class Program
     {
@@ -26,14 +25,22 @@ namespace StringСalculator
                 double result;
                 try
                 {
-                    result = MyCalculator.Resolve(new StringExpressionReader(input));
+                    var reader = new StringExpressionReader(input);
+                    result = MyCalculator.Resolve(reader);
+                }
+                catch (CalculatorException e)
+                {
+                    Console.WriteLine(
+                        $"An error has occured. {e.Message}");
+                    continue;
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e);
+                    Console.WriteLine(
+                        $"An error has occured. {e}");
                     continue;
                 }
-                
+
                 Console.WriteLine($"Result: {result}");
             }
         }

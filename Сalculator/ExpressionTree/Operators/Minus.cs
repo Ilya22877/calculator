@@ -1,15 +1,22 @@
-﻿using StringСalculator.ExpressionTree.Arguments;
+﻿using Сalculator.Exceptions;
+using Сalculator.ExpressionTree.Arguments;
 
-namespace StringСalculator.ExpressionTree.Operators
+namespace Сalculator.ExpressionTree.Operators
 {
     public class Minus : Operator
     {
         public override Argument GetResult()
         {
-            // todo (Left?.Value ?? 0)
-            return new DoubleArgument(Left.Value - Right.Value);
+            if (Right == null)
+            {
+                throw new CalculatorException(
+                    $"Argument is missing. Operator: {nameof(Minus)}");
+            }
+
+            var leftArgument = Left?.Value ?? 0.0;
+            return new DoubleArgument(leftArgument - Right.Value);
         }
 
-        public override int Priority => 1;
+        public override int Priority => Left == null && Right != null? 5 : 2;
     }
 }

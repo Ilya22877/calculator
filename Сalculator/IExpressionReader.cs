@@ -1,6 +1,6 @@
 ﻿using StringСalculator.ExpressionTree;
 
-namespace Сalculator.ExpressionTree
+namespace Сalculator
 {
     public interface IExpressionReader
     {

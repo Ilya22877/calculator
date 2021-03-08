@@ -1,20 +1,27 @@
 ﻿using System;
-using StringСalculator.ExpressionTree.Arguments;
+using Сalculator.Exceptions;
+using Сalculator.ExpressionTree.Arguments;
 
-namespace StringСalculator.ExpressionTree.Operators
+namespace Сalculator.ExpressionTree.Operators
 {
     public class Division : Operator
     {
         public override Argument GetResult()
         {
+            if (Left == null || Right == null)
+            {
+                throw new CalculatorException(
+                    $"Argument is missing. Operator: {nameof(Division)}");
+            }
+
             var denominator = Right.Value;
             if (denominator == 0.0)
             {
-                throw new DivideByZeroException();
+                throw new CalculatorException("Attempt to Divide By Zero");
             }
             return new DoubleArgument(Left.Value / denominator);
         }
 
-        public override int Priority => 2;
+        public override int Priority => 3;
     }
 }
